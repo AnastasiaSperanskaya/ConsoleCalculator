@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Calc {
-    private String[] operatorList = {"+", "-", "*", "/", "^"};
+    private String[] operatorList = {"+", "-", "*", "/", "^", "%"};
     private String input;
     private ArrayList<String> formattedInput = new ArrayList<String>();
 
@@ -62,6 +62,9 @@ public class Calc {
             case "-":
                 output = x - y;
                 break;
+            case "%":
+                output = x % y;
+                break;
         }
 
         return output;
@@ -76,11 +79,12 @@ public class Calc {
         }
         else {
 
-            String[] prioritizedOperations = {"*", "/", "^"};
+            String[] prioritizedOperations = {"*", "/", "^", "%"};
             double condense;
             //Salvation by condensation the ArrayList first by solving "*" "/" "^" expressions
             for (int i = 1; i <= formattedInput.size() - 2; i++)
-                if (formattedInput.get(i).equals("*") || formattedInput.get(i).equals("/") || formattedInput.get(i).equals("^")) {
+                if (formattedInput.get(i).equals("*") || formattedInput.get(i).equals("/") || formattedInput.get(i).equals("^")
+                        || formattedInput.get(i).equals("%")) {
                     condense = condenseExpression(formattedInput.get(i), i);
 
                     formattedInput.remove(i + 1);
