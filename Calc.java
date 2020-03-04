@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Calc {
-    private String[] operatorList = {"+", "-", "*", "/", "^", "%"};
+    private String[] operatorList = {"+", "-", "*", "/", "^", "%", "(", ")"};
     private String input;
     private ArrayList<String> formattedInput = new ArrayList<String>();
 
@@ -22,6 +22,8 @@ public class Calc {
         for (String j : this.operatorList){
             input = input.replace(j, " " + j + " ");
         }
+
+        input = input.replace("  ", " ");
 
         if(input.charAt(0) == ' ') {
             input = input.substring(3);
@@ -73,6 +75,7 @@ public class Calc {
     public String solveExpression(){
         formatUserInput();
         formattedInput = new ConvertConstants(formattedInput).convert();
+        formattedInput = new MathFunctions(formattedInput).evaluateFunctions();
 
         if(formattedInput.size() == 1){
             return (Double.parseDouble(formattedInput.get(0)) + "");
@@ -109,8 +112,12 @@ public class Calc {
 
             if (formattedInput.size() == 1)
                 return (Double.parseDouble(formattedInput.get(0)) + "");
-            else
-                return "Error";
+            else {
+                for(int l = 0; l < formattedInput.size(); l++)
+                    System.out.println(formattedInput.get(l));
+                return formattedInput.size() + " Error";
+
+            }
         }
     }
 
