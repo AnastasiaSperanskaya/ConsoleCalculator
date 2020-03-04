@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 public class MathFunctions {
-    final private String[] advOperatorList = { "sqrt", "sin", "cos"};
+    final private String[] advOperatorList = { "sqrt", "sin", "cos", "tan", "ln", "abs", "exp", "arcsin", "arccos", "arctan"};
     private ArrayList<String> formattedInput;
 
     public MathFunctions(ArrayList<String> formattedUserInput) {
@@ -29,6 +29,27 @@ public class MathFunctions {
                             break;
                         case "cos":
                             formattedInput.set(i, Math.cos(x) + "");
+                            break;
+                        case "tan":
+                            formattedInput.set(i, Math.tan(x) + "");
+                            break;
+                        case "ln":
+                            formattedInput.set(i, Math.log(x) + "");
+                            break;
+                        case "abs":
+                            formattedInput.set(i, Math.abs(x) + "");
+                            break;
+                        case "exp":
+                            formattedInput.set(i, Math.exp(x) + "");
+                            break;
+                        case "arcsin":
+                            formattedInput.set(i, Math.asin(x) + "");
+                            break;
+                        case "arccos":
+                            formattedInput.set(i, Math.acos(x) + "");
+                            break;
+                        case "arctan":
+                            formattedInput.set(i, Math.atan(x) + "");
                             break;
                     }
                     formattedInput.remove(i + 3);
