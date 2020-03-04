@@ -51,4 +51,13 @@ public class Tests {
         String actual = calc.getInput() + "";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void SinTest() {
+        String input = "sin(0)+1";
+        String expected = "1.0";
+        calc.setInput(input);
+        String actual = calc.toString() + "";
+        Assert.assertEquals(expected, actual);
+    }
 }
