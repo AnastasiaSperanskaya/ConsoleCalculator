@@ -1,3 +1,6 @@
 [submodule "v1_0_Source"]
 	path = v1_0_Source
 	url = https://github.com/AnastasiaSperanskaya/ConsCalc_v1_0_Source
+[submodule "v1_2_Source"]
+	path = v1_2_Source
+	url = https://github.com/AnastasiaSperanskaya/ConsCalc_v1_2_Source
