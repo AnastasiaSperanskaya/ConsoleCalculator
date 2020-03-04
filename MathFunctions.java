@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 public class MathFunctions {
-    final private String[] advOperatorList = { "sqrt", "sin", "cos", "tan", "ln", "abs", "exp", "arcsin", "arccos", "arctan"};
+    final private String[] advOperatorList = { "sqrt", "sin", "cos", "tan", "ln", "abs", "exp", "arcsin", "arccos", "arctan", "fact"};
     private ArrayList<String> formattedInput;
 
     public MathFunctions(ArrayList<String> formattedUserInput) {
         this.formattedInput = formattedUserInput;
+    }
+
+    public double factorialOf(double x) {
+        double factorial = 1;
+
+        for (int i = (int)x; i > 1; i--) {
+            factorial *= i;
+        }
+        return factorial;
     }
 
     public ArrayList<String> evaluateFunctions() {
@@ -50,6 +59,9 @@ public class MathFunctions {
                             break;
                         case "arctan":
                             formattedInput.set(i, Math.atan(x) + "");
+                            break;
+                        case "fact":
+                            formattedInput.set(i, factorialOf(x) + "");
                             break;
                     }
                     formattedInput.remove(i + 3);
